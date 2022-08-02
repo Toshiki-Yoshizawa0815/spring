@@ -130,6 +130,7 @@ let showHistory = () => {
 		let tbody = $('#historyTable').find('tbody');
 		$(tbody).children().remove();
 		historyList.forEach((history, index) => {
+
 			let tr = $('<tr />');
 			
 			$('<td />', { 'text': history.goodsName }).appendTo(tr);

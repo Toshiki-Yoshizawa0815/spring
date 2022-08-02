@@ -77,11 +77,16 @@ public class IndexController {
 	public String historyApi(@RequestBody HistoryForm form) {
 		String userId = form.getUserId();
 		List<Purchase> history = purchaseRepos.findHistory(Long.parseLong(userId));
+		
+		System.out.println(history.get(1).getGoodsName());
+		
 		List<HistoryDto> historyDtoList = new ArrayList<>();
 		history.forEach((v) -> {
 			HistoryDto dto = new HistoryDto(v);
 			historyDtoList.add(dto);
 		});
+		
+		System.out.println(historyDtoList.get(2).getGoodsName());
 		
 		return gson.toJson(historyDtoList);
 	}
