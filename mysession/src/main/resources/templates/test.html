@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Session サンプル</title>
+</head>
+<body>
+
+<p th:text="${loginSession.userName != null? 'ようこそ' + loginSession.userName + 'さん':'未ログインです'}" />
+
+<p th:text="${#strings.isEmpty(loginSession.userName)? '未ログインです':'ようこそ' + loginSession.userName + 'さん'}" />
+
+<p th:if="${loginSession.password != null}">
+パスワード入力済みです。
+</p>
+
+<p th:if="${#strings.isEmpty(loginSession.password)}">
+    passwordが空、nullの場合にtrueになる。事前にtrim()されるので空白もtrue。<br>
+    trim()というのは文字列の前後の空白を取り除いた新しい文字列を取得するメソッドのこと。
+</p>
+
+</body>
+</html>
